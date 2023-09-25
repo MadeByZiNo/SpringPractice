@@ -16,12 +16,12 @@ class StatefulServiceTest {
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
 
         // ThreadA
-        statefulService1.order("userA",10000);
+        int userAPrice = statefulService1.order("userA",10000);
         // ThreadB
-        statefulService2.order("userB",20000);
+        int userBPrice = statefulService2.order("userB",20000);
 
-        int price = statefulService1.getPrice();
-        System.out.println("price = " + price);
+        //int price = statefulService1.getPrice();
+        System.out.println("price = " + userAPrice);
     }
 
     static class TestConfig {
